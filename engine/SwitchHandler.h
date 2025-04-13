@@ -18,6 +18,8 @@ namespace engine {
 
         [[nodiscard]] auto selectBranch(const Request& request) const -> std::shared_ptr<Handler>;
 
+        auto getBranches() const -> const std::vector<std::pair<std::function<bool(const Request&)>, std::shared_ptr<Handler>>>&;
+
     protected:
         auto doCompute(const Request& request) -> std::shared_ptr<Result> override;
 

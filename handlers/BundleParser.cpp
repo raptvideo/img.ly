@@ -10,7 +10,7 @@ namespace handler {
         result->metadata = request.metadata;
         result->data = request.data;
 
-        std::cout << "[BundleParser] Executing: " << this->getName() << "\n";
+        std::cout << "[BundleParser] Executing: " << this->getName() << std::endl;
         return result;
     }
 }

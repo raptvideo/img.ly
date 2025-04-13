@@ -9,7 +9,7 @@ namespace handler {
         result->metadata = request.metadata;
         result->data = request.data;
 
-        std::cout << "[ZipDecompressor] Executing: " << getName() << "\n";
+        std::cout << "[ZipDecompressor] Executing: " << getName() << std::endl;
 
         if (request.fileType.isCompress()) {
             result->status = engine::Status::Success;

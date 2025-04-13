@@ -4,9 +4,6 @@
 #include "engine/Request.h"
 #include "engine/Result.h"
 
-#include <iostream>
-#include <string>
-
 namespace handler {
     class HttpParser: public engine::Handler {
     public:

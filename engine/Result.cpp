@@ -2,11 +2,11 @@
 
 namespace engine {
     void Result::set(const std::string& key, const std::string& value) {
-        metadata[key] = value;
+        this->metadata[key] = value;
     }
 
     auto Result::get(const std::string& key) const -> std::string {
-        auto it = metadata.find(key);
-        return it != metadata.end() ? it->second : "";
+        auto it = this->metadata.find(key);
+        return it != this->metadata.end() ? it->second : "";
     }
 }

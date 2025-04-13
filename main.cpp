@@ -62,7 +62,8 @@ int main() {
 
     pipeline.execute(request1);
     auto result = pipeline.getFinalResult();
-    assert(result->get("Stack") == "CheckInput->FileParser->CheckFileType->ZipDecompressor->CheckFileType->ZipDecompressor->CheckFileType->ImageDecoder");
+    std::cout << "Stack trace: " << result->get("Stack") << std::endl;
+    assert(result->get("Stack") == "CheckInput -> FileParser -> CheckFileType -> ZipDecompressor -> CheckFileType -> ZipDecompressor -> CheckFileType -> ImageDecoder");
 
     engine::Request request2{
         engine::InputType::Http,
@@ -72,7 +73,8 @@ int main() {
 
     pipeline.execute(request2);
     result = pipeline.getFinalResult();
-    assert(result->get("Stack") == "CheckInput->HttpParser->CheckFileType->ZipDecompressor->CheckFileType->JsonParser");
+    std::cout << "Stack trace: " << result->get("Stack") << std::endl;
+    assert(result->get("Stack") == "CheckInput -> HttpParser -> CheckFileType -> ZipDecompressor -> CheckFileType -> JsonParser");
 
     engine::Request request3{
         engine::InputType::Bundle,
@@ -82,5 +84,8 @@ int main() {
 
     pipeline.execute(request3);
     result = pipeline.getFinalResult();
-    assert(result->get("Stack") == "CheckInput->BundleParser->CheckFileType->ImageDecoder");
+    std::cout << "Stack trace: " << result->get("Stack") << std::endl;
+    assert(result->get("Stack") == "CheckInput -> BundleParser -> CheckFileType -> ImageDecoder");
+
+    std::cout << "\nAll tests were passed successfully!" << std::endl;
 }

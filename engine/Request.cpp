@@ -10,6 +10,6 @@ namespace engine {
     }
 
     bool FileType::isCompress() const {
-        return type == WrapperType::Compress;
+        return this->type == WrapperType::Compress;
     }
 }

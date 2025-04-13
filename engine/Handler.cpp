@@ -3,14 +3,14 @@
 namespace engine {
     Handler::Handler(const std::string& name) : name(name) {}
 
-    auto Handler::getName() const -> std::string { return name; }
+    auto Handler::getName() const -> std::string { return this->name; }
 
     void Handler::addNext(const std::shared_ptr<Handler>& nextHandler) {
-        nextHandlers.push_back(nextHandler);
+        this->nextHandlers.push_back(nextHandler);
     }
 
     auto Handler::getNextHandlers() const -> const std::vector<std::shared_ptr<Handler>>& {
-        return nextHandlers;
+        return this->nextHandlers;
     }
 
     auto Handler::compute(const Request& request) -> std::shared_ptr<Result> {

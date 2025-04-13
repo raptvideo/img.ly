@@ -4,11 +4,6 @@
 #include "engine/Request.h"
 #include "engine/Result.h"
 
-#include <iostream>
-#include <string>
-
-#include "../engine/Result.h"
-
 namespace handler {
     class BundleParser: public engine::Handler {
     public:

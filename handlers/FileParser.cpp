@@ -10,7 +10,7 @@ namespace handler {
         result->metadata = request.metadata;
         result->data = request.data;
 
-        std::cout << "[FileParser] Executing: " << getName() << "\n";
+        std::cout << "[FileParser] Executing: " << getName() << std::endl;
         return result;
     }
 }

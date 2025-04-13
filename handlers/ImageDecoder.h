@@ -2,9 +2,6 @@
 
 #include "engine/Handler.h"
 
-#include <iostream>
-#include <string>
-
 namespace handler {
     class ImageDecoder: public engine::Handler {
     public:

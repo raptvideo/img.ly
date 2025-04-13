@@ -7,16 +7,20 @@ namespace engine {
 
     void SwitchHandler::addBranch(std::function<bool(const Request&)> condition,
                                    const std::shared_ptr<Handler>& nextHandler) {
-        branches.emplace_back(std::move(condition), nextHandler);
+        this->branches.emplace_back(std::move(condition), nextHandler);
     }
 
     auto SwitchHandler::selectBranch(const Request& request) const -> std::shared_ptr<Handler> {
-        for (const auto& [condition, handler] : branches) {
+        for (const auto& [condition, handler] : this->branches) {
             if (condition(request)) {
                 return handler;
             }
         }
         return nullptr;
+    }
+
+    auto SwitchHandler::getBranches() const -> const std::vector<std::pair<std::function<bool(const Request&)>, std::shared_ptr<Handler>>>& {
+        return this->branches;
     }
 
     auto SwitchHandler::doCompute(const Request& request) -> std::shared_ptr<Result> {
