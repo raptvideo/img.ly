@@ -29,5 +29,4 @@ namespace engine {
         std::string name;
         std::vector<std::shared_ptr<Handler>> nextHandlers;
     };
-
 }

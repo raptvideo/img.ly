@@ -1,6 +1,8 @@
 #pragma once
 
 #include "engine/Handler.h"
+#include "engine/Request.h"
+#include "engine/Result.h"
 
 namespace handler {
     class ImageDecoder: public engine::Handler {
